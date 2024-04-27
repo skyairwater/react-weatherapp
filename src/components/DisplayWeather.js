@@ -5,8 +5,8 @@ function DisplayWeather({weatherResult, cbRemoveWeather})
    
     return (
       <div>        
-        <div className="card" onClick={() => { cbRemoveWeather(weatherResult.UUID)}} >
-          <div className="title">{weatherResult.name}</div>
+        <div className="card" onClick={() => { cbRemoveWeather(weatherResult.UUID)}} >        
+          <div className="title">{weatherResult.name} <a href="#" className="close-thik"></a></div>
           <div className="features">
             <ul>
               <li>{weatherResult.main.temp}</li>
