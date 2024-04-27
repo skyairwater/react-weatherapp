@@ -16,13 +16,17 @@ const api = {
   
     const fetchWeather = () => 
     {
-        let cityName = document.getElementById('txtCityName').value;
-         fetch(`${api.base}weather?q=${cityName}&units=imperial&APPID=${api.key}`)
+        let txtCityName = document.getElementById('txtCityName');        
+         fetch(`${api.base}weather?q=${txtCityName.value}&units=imperial&APPID=${api.key}`)
         .then(response => response.json())
         .then((result) => {            
             setWeather([...weatherData, result]);
             ShowWeather(true);        
-        })        
+        })
+        .finally(() => {
+            txtCityName.value = '';
+            txtCityName.focus();
+        });        
     }
     
     return (        
@@ -34,12 +38,13 @@ const api = {
                             type="text" 
                             className='text-box' 
                             placeholder='Enter City/Town...' 
-                            required />
+                            required 
+                            onKeyDown={(e) => { if(e.key === "Enter") fetchWeather();}}/>
 
                     <button className='button-62' onClick={fetchWeather}>Search</button>
                 
             </header>
-            
+
             { displayWeather ? weatherData.map((item, index) => (<DisplayWeather key={index} weather={item} />)): null }
         </div>        
     )
