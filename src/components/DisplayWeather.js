@@ -1,18 +1,18 @@
 import './DisplayWeather.css';
 
-function DisplayWeather(props) 
-{ 
-  console.log(props);
+function DisplayWeather({weatherResult, cbRemoveWeather}) 
+{  
+   
     return (
-      <div>
-        <div className="card">
-          <div className="title">{props.weather.name}</div>
+      <div>        
+        <div className="card" onClick={() => { cbRemoveWeather(weatherResult.UUID)}} >
+          <div className="title">{weatherResult.name}</div>
           <div className="features">
             <ul>
-              <li>{props.weather.main.temp}</li>
-              <li>{props.weather.weather[0].main}</li>
-              <li><img src={ `http://openweathermap.org/img/w/${props.weather.weather[0].icon}.png`}></img></li>
-              <li>{props.weather.weather[0].description}</li>              
+              <li>{weatherResult.main.temp}</li>
+              <li>{weatherResult.weather[0].main}</li>
+              <li><img src={ `http://openweathermap.org/img/w/${weatherResult.weather[0].icon}.png`}></img></li>
+              <li>{weatherResult.weather[0].description}</li>              
             </ul>
           </div>          
         </div>

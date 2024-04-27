@@ -20,13 +20,24 @@ const api = {
          fetch(`${api.base}weather?q=${txtCityName.value}&units=imperial&APPID=${api.key}`)
         .then(response => response.json())
         .then((result) => {            
-            setWeather([...weatherData, result]);
-            ShowWeather(true);        
+            
+            if(result.cod === 200) 
+            {
+                result.UUID = crypto.randomUUID();
+                setWeather([...weatherData, result]);
+                ShowWeather(true);        
+            }
         })
         .finally(() => {
             txtCityName.value = '';
             txtCityName.focus();
         });        
+    }
+
+    const RemoveWeather = (UUID)  =>
+    {
+        let weather = weatherData.filter((item) => item.UUID !== UUID);         
+        setWeather(weather);
     }
     
     return (        
@@ -45,7 +56,8 @@ const api = {
                 
             </header>
 
-            { displayWeather ? weatherData.map((item, index) => (<DisplayWeather key={index} weather={item} />)): null }
+            { displayWeather ? weatherData.map((item, index) => 
+                (<DisplayWeather key={index} id={index} weatherResult={item} cbRemoveWeather={RemoveWeather} />)): null }
         </div>        
     )
   }
