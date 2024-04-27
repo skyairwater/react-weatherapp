@@ -1,6 +1,6 @@
 import '../App.css';
-import '../components/Weather.css';
-import DisplayWeather from './DisplayWeather';
+import '../components/DisplayWeather.css';
+import DisplayWeather from '../components/DisplayWeather';
 
 import { useState } from 'react';
 
@@ -10,19 +10,19 @@ const api = {
   }
 
   function GetWeather()
-  {
-    const [cityName, setCity] = useState("");    
-    const [weatherData, setWeather] = useState({});
-    const [displayWeather, ShowWeather] = useState(false);
+  {    
+    const [weatherData, setWeather] = useState([]);
+    const [displayWeather, ShowWeather] = useState(false);    
   
-    const fetchWeather = async () => 
+    const fetchWeather = () => 
     {
-        await fetch(`${api.base}weather?q=${cityName}&units=imperial&APPID=${api.key}`)
+        let cityName = document.getElementById('txtCityName').value;
+         fetch(`${api.base}weather?q=${cityName}&units=imperial&APPID=${api.key}`)
         .then(response => response.json())
-        .then((result) => {
-            setWeather(result);
+        .then((result) => {            
+            setWeather([...weatherData, result]);
             ShowWeather(true);        
-        })
+        })        
     }
     
     return (        
@@ -30,15 +30,17 @@ const api = {
             <header className="App-header">
                 <h2>Weather App</h2>
                 
-                    <input type="text" 
+                    <input id="txtCityName"
+                            type="text" 
                             className='text-box' 
                             placeholder='Enter City/Town...' 
-                            onChange={(e) => setCity(e.target.value)} required />
+                            required />
 
                     <button className='button-62' onClick={fetchWeather}>Search</button>
                 
             </header>
-            { displayWeather ? <DisplayWeather weather={weatherData} /> : null }
+            
+            { displayWeather ? weatherData.map((item, index) => (<DisplayWeather key={index} weather={item} />)): null }
         </div>        
     )
   }

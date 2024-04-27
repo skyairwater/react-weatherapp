@@ -1,16 +1,17 @@
-import './Weather.css';
+import './DisplayWeather.css';
 
-function DisplayWeather({weather}) 
-{    
+function DisplayWeather(props) 
+{ 
+  console.log(props);
     return (
       <div>
         <div className="card">
-          <div className="title">{weather.name}</div>
+          <div className="title">{props.weather.name}</div>
           <div className="features">
             <ul>
-              <li>{weather.main.temp}</li>
-              <li>{weather.weather[0].main}</li>
-              <li>{weather.weather[0].description}</li>              
+              <li>{props.weather.temp}</li>
+              <li>{props.weather.weather[0].main}</li>
+              <li>{props.weather.weather[0].description}</li>              
             </ul>
           </div>          
         </div>
