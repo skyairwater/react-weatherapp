@@ -2,9 +2,10 @@ import logo from '../logo.svg';
 import Alert from 'react-bootstrap/Alert';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import '../components/SiteHeader.css';
 
-function SiteHeader(){
-
+function SiteHeader()
+{
     return(
         <>
             <Alert variant='danger'>                

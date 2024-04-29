@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import './index.css';
 import GetWeather from './components/GetWeather';
 import reportWebVitals from './reportWebVitals';
 

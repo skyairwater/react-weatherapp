@@ -1,5 +1,4 @@
-import '../App.css';
-import '../components/DisplayWeather.css';
+
 import SiteHeader from '../components/SiteHeader';
 import DisplayWeather from '../components/DisplayWeather';
 
@@ -7,7 +6,6 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
 
 import { useState } from 'react';
 
