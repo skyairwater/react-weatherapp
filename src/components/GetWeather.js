@@ -1,5 +1,6 @@
 import '../App.css';
 import '../components/DisplayWeather.css';
+import SiteHeader from '../components/SiteHeader';
 import DisplayWeather from '../components/DisplayWeather';
 
 import { useState } from 'react';
@@ -43,8 +44,7 @@ const api = {
     return (        
         <div className="App">
             <header className="App-header">
-                <h2>Weather App</h2>
-                
+                    <SiteHeader />
                     <input id="txtCityName"
                             type="text" 
                             className='text-box' 
