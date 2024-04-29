@@ -1,12 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 import './index.css';
 import GetWeather from './components/GetWeather';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <GetWeather />
+  <Container className='mt-3'>
+    <Row>
+      <GetWeather />    
+    </Row>
+  </Container>  
 );
 
 // If you want to start measuring performance in your app, pass a function
