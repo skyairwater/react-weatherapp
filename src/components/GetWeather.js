@@ -1,4 +1,3 @@
-
 import SiteHeader from '../components/SiteHeader';
 import DisplayWeather from '../components/DisplayWeather';
 
