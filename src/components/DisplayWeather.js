@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+import Button from 'react-bootstrap/Button';
 
 var measurement = "";
 function DisplayWeather({weatherResult, cbRemoveWeather}) 
@@ -16,9 +17,9 @@ function DisplayWeather({weatherResult, cbRemoveWeather})
   }
     return (
       <>
-        <Card bg="Primary" style={{width: '26rem'}} className="mb2 m-2">
-          <Card.Header></Card.Header>
+        <Card bg="Primary" style={{width: '26rem'}} className="mb2 m-2">          
           <Card.Body>
+            <Button onClick={() => { cbRemoveWeather(weatherResult.UUID)}} className='float-end' variant="danger" size="sm">X</Button>
               <Row>
                 <Col xs lg="6">
                   <h5 className='mt-2'>{weatherResult.name}</h5>
