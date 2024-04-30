@@ -2,6 +2,7 @@ import SiteHeader from '../components/SiteHeader';
 import DisplayWeather from '../components/DisplayWeather';
 
 import Button from 'react-bootstrap/Button';
+import Spinner from 'react-bootstrap/Spinner';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -17,14 +18,14 @@ const api = {
   {    
     const [weatherData, setWeather] = useState([]);
     const [displayWeather, ShowWeather] = useState(false);    
-  
+    const [displaySpinner, ShowSpinner] = useState(false);
     const fetchWeather = () => 
     {
+        ShowSpinner(true);
         let txtCityName = document.getElementById('txtCityName');        
          fetch(`${api.base}weather?q=${txtCityName.value}&units=imperial&APPID=${api.key}`)
         .then(response => response.json())
-        .then((result) => {            
-            
+        .then((result) => {
             if(result.cod === 200) 
             {
                 result.UUID = crypto.randomUUID();
@@ -35,6 +36,7 @@ const api = {
         .finally(() => {
             txtCityName.value = '';
             txtCityName.focus();
+            ShowSpinner(false);
         });        
     }
 
@@ -57,12 +59,23 @@ const api = {
                                 onKeyDown={(e) => { if(e.key === "Enter") fetchWeather();}} />              
                 </Col>
                 <Col>
-                    <Button variant="primary" onClick={fetchWeather}>Submit</Button>                    
+                    <Button variant="primary" onClick={fetchWeather}>
+                    { displaySpinner ?  
+                        (
+                            <Spinner as="span"
+                                animation="border"
+                                size="sm"
+                                role="status"
+                                aria-hidden="true" />
+                        ): null 
+                    }
+                         Submit</Button>                    
                 </Col>
             </Row>      
             <Row className='mt-2'>
                 { displayWeather ? weatherData.map((item, index) => 
-                    (<DisplayWeather key={index} id={index} weatherResult={item} cbRemoveWeather={RemoveWeather} />)): null }
+                    (<DisplayWeather key={index} id={index} 
+                    weatherResult={item} cbRemoveWeather={RemoveWeather} />)): null }
             </Row>
         </>        
             
