@@ -5,16 +5,9 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 
-var measurement = "";
+
 function DisplayWeather({weatherResult, cbRemoveWeather}) 
-{  
-  if(weatherResult.sys.country == 'US')
-  {
-    measurement = "F"
-  }
-  else if(weatherResult.sys.country !== 'US') { 
-    measurement = "C";
-  }
+{ 
     return (
       <>
         <Card bg="Primary" style={{width: '26rem'}} className="mb2 m-2">          
@@ -42,7 +35,7 @@ function DisplayWeather({weatherResult, cbRemoveWeather})
                   <Form.Label column sm="5">Temperature</Form.Label>
                   <Col sm="5">
                     <Form.Control plaintext readOnly 
-                        defaultValue={`${weatherResult.main.temp} °${measurement}`} />
+                        defaultValue={`${weatherResult.main.temp}`} />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row} controlId="formFeelsLikeLabel">

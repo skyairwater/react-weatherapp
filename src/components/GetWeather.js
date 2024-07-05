@@ -24,7 +24,9 @@ const api = {
     {
         ShowSpinner(true);
         let txtCityName = document.getElementById('txtCityName');        
-         fetch(`${api.base}weather?q=${txtCityName.value}&units=imperial&APPID=${api.key}`)
+        let openWeatherMapApiRequest = `${api.base}weather?q=${txtCityName.value}&units=imperial&APPID=${api.key}`;
+
+        fetch(openWeatherMapApiRequest)
         .then(response => response.json())
         .then((result) => {
             if(result.cod === 200) 
