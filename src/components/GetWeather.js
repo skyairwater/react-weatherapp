@@ -19,6 +19,7 @@ const api = {
     const [weatherData, setWeather] = useState([]);
     const [displayWeather, ShowWeather] = useState(false);    
     const [displaySpinner, ShowSpinner] = useState(false);
+    
     const fetchWeather = () => 
     {
         ShowSpinner(true);
@@ -56,6 +57,7 @@ const api = {
                                 className='text-box' 
                                 placeholder='Enter City/Town...' 
                                 required 
+                                autoFocus
                                 onKeyDown={(e) => { if(e.key === "Enter") fetchWeather();}} />              
                 </Col>
                 <Col>
@@ -74,12 +76,13 @@ const api = {
             </Row>      
             <Row className='mt-2'>
                 { displayWeather ? weatherData.map((item, index) => 
-                    (<DisplayWeather key={index} id={index} 
-                    weatherResult={item} cbRemoveWeather={RemoveWeather} />)): null }
+                    (<DisplayWeather key={index} 
+                                     id={index} 
+                                     weatherResult={item} 
+                                     cbRemoveWeather={RemoveWeather} />)): null }
             </Row>
-        </>        
-            
-    )
+        </> 
+        )
   }
   
   export default GetWeather;

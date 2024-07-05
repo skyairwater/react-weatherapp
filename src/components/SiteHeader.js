@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import '../components/SiteHeader.css';
+import React, { useState } from 'react';
 
 function SiteHeader()
 {
@@ -11,17 +12,8 @@ function SiteHeader()
         <>
             <Alert variant='warning'>                
                 <Row>
-                    <Col md="auto" className='text-center'><h4>Weather App by Krishna Murthy - React Functional Components</h4></Col>
-                    <Col><img src={logo} className="App-logo" alt="logo" /></Col>    
-                    <Col>
-                    <Form.Label htmlFor="exampleColorInput">Site Background</Form.Label>
-                        <Form.Control
-                            type="color"
-                            id="exampleColorInput"
-                            defaultValue="#563d7c"
-                            title="Choose your color"
-                        />
-                    </Col>    
+                    <Col md="auto" className='text-center'><h4>Weather App by Ganesh Murthy - React Functional Components</h4></Col>
+                    <Col><img src={logo} className="App-logo" alt="logo" /></Col>                        
                 </Row>
             </Alert>
         </>
