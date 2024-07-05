@@ -2,9 +2,7 @@ import logo from '../logo.svg';
 import Alert from 'react-bootstrap/Alert';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
 import '../components/SiteHeader.css';
-import React, { useState } from 'react';
 
 function SiteHeader()
 {
