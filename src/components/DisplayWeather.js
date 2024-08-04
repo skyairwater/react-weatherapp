@@ -35,28 +35,28 @@ function DisplayWeather({weatherResult, cbRemoveWeather})
                   <Form.Label column sm="5">Temperature</Form.Label>
                   <Col sm="5">
                     <Form.Control plaintext readOnly 
-                        defaultValue={`${weatherResult.main.temp}`} />
+                        defaultValue={`${weatherResult.main.temp} °F`} />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row} controlId="formFeelsLikeLabel">
                   <Form.Label column sm="5">Feels Like</Form.Label>
                   <Col sm="5">
                     <Form.Control plaintext readOnly 
-                        defaultValue={weatherResult.main.feels_like} />
+                        defaultValue={`${weatherResult.main.feels_like} °F`} />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row} controlId="formMaxTempLabel">
                   <Form.Label column sm="5">Max Temp</Form.Label>
                   <Col sm="5">
                     <Form.Control plaintext readOnly 
-                        defaultValue={weatherResult.main.temp_max} />
+                        defaultValue={`${weatherResult.main.temp_max} °F`} />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row} controlId="formMinTempLabel">
                   <Form.Label column sm="5">Min Temp</Form.Label>
                   <Col sm="5">
                     <Form.Control plaintext readOnly 
-                        defaultValue={weatherResult.main.temp_min} />
+                        defaultValue={`${weatherResult.main.temp_min} °F`} />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row} controlId="formConditionLabel">
