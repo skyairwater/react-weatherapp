@@ -7,6 +7,7 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+
 import { useState } from 'react';
 
 const api = {
@@ -54,7 +55,7 @@ const api = {
             <SiteHeader />
             <Row>
                 <Col xs lg="3">
-                    <Form.Control id="txtCityName"
+                <Form.Control id="txtCityName"
                                 type="text" 
                                 className='text-box' 
                                 placeholder='Enter City/Town...' 
