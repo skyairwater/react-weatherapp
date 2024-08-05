@@ -5,11 +5,13 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import GetWeather from './components/GetWeather';
 import reportWebVitals from './reportWebVitals';
+import SiteHeader from './components/SiteHeader';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Container className='mt-3'>
     <Row>
+      <SiteHeader />
       <GetWeather />    
     </Row>
   </Container>  
